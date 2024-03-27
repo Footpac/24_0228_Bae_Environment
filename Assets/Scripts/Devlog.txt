@@ -1,0 +1,11 @@
+Devlog Start
+
+010324 9:39
+contructed start screen composition
+- title
+- buttons
+- assets
+- BG
+Contructing multiple scenes and environments
+
+190324 18:55
