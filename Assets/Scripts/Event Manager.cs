@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    private bool waterReqMet = false;
+    private bool foodReqMet = false;
+    public GameObject nextSceneButton;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +20,10 @@ public class NewBehaviourScript : MonoBehaviour
     {
         
     }
+
+    private void OnMouseDown()
+    {
+        
+    }
+
 }
