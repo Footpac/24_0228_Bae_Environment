@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
-{
+{/*
     public int energyMeter;
     public int waterMeter;
     public GameObject energySource;
@@ -34,5 +34,5 @@ public class ResourceManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && energySource)
         {
         }
-    }
+    }*/
 }
