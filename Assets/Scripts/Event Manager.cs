@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class EventManager : MonoBehaviour
 {
-    private bool waterReqMet = false;
-    private bool foodReqMet = false;
+    private bool waterReqMet;
+    private bool foodReqMet;
     public GameObject nextSceneButton;
     public GameObject waterObj;
     public GameObject foodObj;
-    private bool isSelected = false;
+    public GameObject selectedGO;
 
     // Start is called before the first frame update
     void Start()
@@ -19,46 +19,28 @@ public class NewBehaviourScript : MonoBehaviour
         //if (nextSceneButton == null){ nextSceneButton = GameObject.FindGameObjectWithTag("NextSceneButton"); }
         if (waterObj == null){waterObj = GameObject.FindWithTag("Water");}
         if (foodObj == null){foodObj = GameObject.FindWithTag("Food");}
-    }
+        if (nextSceneButton == null) { nextSceneButton = GameObject.FindWithTag("Button"); }
+        waterReqMet = false;
+        foodReqMet = false;
+}
     
     // Update is called once per frame
     void Update()
     {
-        if (isSelected == true)
+        if (selectedGO == waterObj && waterReqMet == false)
         {
-            Vector3 mousePos;
-            mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            isSelected = true;
+            print("This is a waterObj: " + selectedGO);
+            waterReqMet = true;
+        }
+        if (selectedGO == foodObj && foodReqMet == false)
+        {
+            print("This is a foodObj: " + selectedGO);
+            foodReqMet = true;
+        }
+        if (foodReqMet && waterReqMet)
+        {
+            nextSceneButton.SetActive(true);
 
-            GameObject selectedGO = this.gameObject;
-            print("holding this GO:" + selectedGO);
-
-            if (selectedGO  = waterObj)
-            {
-                print("This is a waterObj:" + selectedGO);
-            }
-            if (selectedGO = foodObj)
-            {
-                print("This is a foodObj:" + selectedGO);
-            }
         }
     }
-
-    private void OnMouseDown()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePos;
-            mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            isSelected = true;
-        }
-    }
-
-    private void OnMouseUp()
-    {
-        isSelected = false;
-    }
-
 }
